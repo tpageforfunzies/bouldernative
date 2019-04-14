@@ -42,7 +42,7 @@ class PostRoute extends Component {
     });
     axios({
       method: 'post',
-      url: 'http://hackcity.dev/v1/route/new',
+      url: 'https://www.hackcity.dev/v1/route/new',
       headers: authheader,
       data: {
         user_id: parseInt(this.state.user_obj.id),

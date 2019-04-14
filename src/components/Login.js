@@ -30,7 +30,7 @@ class Login extends Component {
 
     this.setState({ error: '', loading: true })
 
-    axios.post('http://hackcity.dev/v1/user/login', {
+    axios.post('https://www.hackcity.dev/v1/user/login', {
       email: email,
       password: password
     })

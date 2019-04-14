@@ -40,7 +40,7 @@ class Registration extends React.Component {
   registerUser() {
     const { name, email, password, response } = this.state; 
     console.log(this.state);
-    axios.post('http://hackcity.dev/v1/user/new', {
+    axios.post('https://www.hackcity.dev/v1/user/new', {
       name: name,
       email: email,
       password: password

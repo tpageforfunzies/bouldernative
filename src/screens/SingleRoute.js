@@ -22,7 +22,7 @@ class SingleRoute extends Component {
     const bearer = "Bearer ".concat(this.props.jwt)
     const authheader = { "Authorization": bearer }
 
-    axios.delete('http://hackcity.dev/v1/route/'.concat(this.state.route), {
+    axios.delete('https://www.hackcity.dev/v1/route/'.concat(this.state.route), {
       headers: authheader
     })
     .then((res) => {
@@ -42,7 +42,7 @@ class SingleRoute extends Component {
 
   gatherRoute() {
     const authheader = { "Authorization": "Bearer ".concat(this.props.jwt) }
-    const requrl = 'http://hackcity.dev/v1/route/'.concat(this.state.route);
+    const requrl = 'https://www.hackcity.dev/v1/route/'.concat(this.state.route);
 
     axios(requrl, {
       headers: authheader

@@ -43,7 +43,7 @@ export default class LoggedIn extends Component {
     const numId = parseInt(this.props.id);
     const authheader = { "Authorization": "Bearer ".concat(this.props.jwt) }
 
-    const requrl = 'http://hackcity.dev/v1/user/'.concat(this.props.id);
+    const requrl = 'https://www.hackcity.dev/v1/user/'.concat(this.props.id);
 
     axios(requrl, {
       headers: authheader
@@ -91,7 +91,7 @@ export default class LoggedIn extends Component {
 
   gatherRoutes() {
     const backurl = this.props.id.toString().concat('/routes');
-    const requrl = 'http://hackcity.dev/v1/user/'.concat(backurl);
+    const requrl = 'https://www.hackcity.dev/v1/user/'.concat(backurl);
     const bearer = "Bearer ".concat(this.props.jwt)
     const authheader = { "Authorization": bearer }
 
