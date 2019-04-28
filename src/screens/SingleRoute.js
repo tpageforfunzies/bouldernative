@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Button } from '../components/common'
+import { Comments } from '../components'
 import axios from 'axios';
+import Moment from 'moment';
 
 class SingleRoute extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class SingleRoute extends Component {
     this.state = {
       user_obj: this.props.user_obj,
       route: this.props.route,
-      route_obj: {}
+      route_obj: {},
+      routeComments: []
     }
     this.deleteRoute = this.deleteRoute.bind(this)
     this.gatherRoute = this.gatherRoute.bind(this)
@@ -35,8 +38,10 @@ class SingleRoute extends Component {
   }
 
   handleRes = (obj) => {
+    // console.log(obj.route.Comments)
     this.setState({
-      route_obj: obj.route
+      route_obj: obj.route,
+      routeComments: obj.route.Comments
     });
   } 
 
@@ -56,16 +61,20 @@ class SingleRoute extends Component {
   }
 
   render() {
+    console.log(this.state.routeComments)
     return (
       <View style={styles.container}>
         <Text style={styles.title}>{this.state.route_obj.name}</Text>
-        <Text style={styles.subtitle}>{this.state.route_obj.grade}</Text>
+        <Text style={styles.subtitle}>V{this.state.route_obj.grade}</Text>
+        <Text style={styles.subtitle}>Sent: {Moment(this.state.route_obj.CreatedAt).format('ddd MMMM Do YYYY')} </Text>
         <Button onPress={this.props.resetFocus}>
           Go Back
         </Button>
         <Button onPress={this.deleteRoute} style={styles.dangerbutton}>
           Delete Route
         </Button>
+        <Comments comments={this.state.routeComments}></Comments>
+
       </View>
     );
   }

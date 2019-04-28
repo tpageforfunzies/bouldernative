@@ -4,6 +4,7 @@ import { ListItem, Header, Icon } from 'react-native-elements'
 import { Button } from '../components/common/Button'
 import { HeaderButton } from '../components/common/HeaderButton'
 import axios from 'axios';
+import Moment from 'moment';
 
 import { PostRoute, SingleRoute } from '../screens'
 import { LogoutButton } from '../components/common/LogoutButton';
@@ -120,7 +121,6 @@ export default class LoggedIn extends Component {
               rightComponent={<HeaderButton onPress={this.togglePostRoute}/>}
             />
             <ScrollView>
-              {/* TODO: Figure out how to change the timestamp to something human readable*/}
               {
                 routes.map((l, i) => (
                   <ListItem
@@ -130,7 +130,7 @@ export default class LoggedIn extends Component {
                     title={l.name}
                     titleStyle={{ color: 'black', fontWeight: 'bold' }}
                     subtitleStyle={{ color: '#444' }}
-                    subtitle={`${l.grade} - Put Date Here`} />
+                    subtitle={`V${l.grade} - ${Moment(l.CreatedAt).format('ddd MMMM Do YYYY')}`} />
                 ))
               }
             </ScrollView>
