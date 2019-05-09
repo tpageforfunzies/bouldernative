@@ -61,20 +61,19 @@ class SingleRoute extends Component {
   }
 
   render() {
-    console.log(this.state.routeComments)
+    let stuff = this.state.routeComments;
     return (
       <View style={styles.container}>
         <Text style={styles.title}>{this.state.route_obj.name}</Text>
         <Text style={styles.subtitle}>V{this.state.route_obj.grade}</Text>
-        <Text style={styles.subtitle}>Sent: {Moment(this.state.route_obj.CreatedAt).format('ddd MMMM Do YYYY')} </Text>
+        <Text style={styles.subtitle}>Sent: {Moment(this.state.route_obj.CreatedAt).format('ddd MMMM Do, YYYY')} </Text>
         <Button onPress={this.props.resetFocus}>
           Go Back
         </Button>
         <Button onPress={this.deleteRoute} style={styles.dangerbutton}>
           Delete Route
         </Button>
-        <Comments comments={this.state.routeComments}></Comments>
-
+        <Comments comments={stuff} />
       </View>
     );
   }

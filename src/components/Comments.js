@@ -15,12 +15,11 @@ import Accordion from 'react-native-collapsible/Accordion';
 class Comments extends Component {
   constructor(props) {
     super(props)
-    console.log(this.props.comments)
+    console.log(this.props)
     this.state = {
       comments: [],
       commentSections: this._getCommentSections(this.props.comments),
       activeSections: [],
-
     }
   }
 

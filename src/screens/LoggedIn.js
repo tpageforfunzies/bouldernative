@@ -130,7 +130,7 @@ export default class LoggedIn extends Component {
                     title={l.name}
                     titleStyle={{ color: 'black', fontWeight: 'bold' }}
                     subtitleStyle={{ color: '#444' }}
-                    subtitle={`V${l.grade} - ${Moment(l.CreatedAt).format('ddd MMMM Do YYYY')}`} />
+                    subtitle={`V${l.grade} - ${Moment(l.CreatedAt).format('ddd MMMM Do, YYYY')}`} />
                 ))
               }
             </ScrollView>
